@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_backaground" >
+
+        <TextView
+            android:id="@+id/tv_register_toLOgin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="登录"
+
+ />
+
+        <TextView
+            android:id="@+id/tv_register_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="注册"
+           />
+
+        <TextView
+            android:id="@+id/tv_register_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="提交"
+           />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:background="@color/contentBackground" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" 
+                android:paddingBottom="50dp"
+                >
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/tv_register_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_register_confirmPassword"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignRight="@+id/tv_register_confirmPassword"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="用户名" />
+
+                <EditText
+                    android:id="@+id/et_register_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_register_username"
+                    android:layout_toRightOf="@+id/tv_register_username"
+                    android:ems="10"
+                    android:text="zhangjiujun" >
+
+                    <requestFocus />
+                </EditText>
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/tv_register_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/tv_register_confirmPassword"
+                    android:layout_alignRight="@id/tv_register_confirmPassword"
+                    android:layout_below="@id/tv_register_username"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="密码" />
+
+                <EditText
+                    android:id="@+id/et_register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_register_password"
+                    android:layout_below="@id/et_register_username"
+                    android:layout_toRightOf="@id/tv_register_password"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:text="1" />
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/tv_register_confirmPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_register_password"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="确认密码" />
+
+                <EditText
+                    android:id="@+id/et_register_confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_register_confirmPassword"
+                    android:layout_below="@id/et_register_password"
+                    android:layout_toRightOf="@id/tv_register_confirmPassword"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:text="1" />
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/tv_register_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/tv_register_confirmPassword"
+                    android:layout_alignRight="@id/tv_register_confirmPassword"
+                    android:layout_below="@id/tv_register_confirmPassword"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="呢称" />
+
+                <EditText
+                    android:id="@+id/et_register_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_register_name"
+                    android:layout_below="@id/et_register_confirmPassword"
+                    android:layout_toRightOf="@id/tv_register_name"
+                    android:ems="10"
+                    android:text="1" />
+                
+                <EditText
+                    android:id="@+id/a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_register_name"
+                    android:ems="10"
+                    android:visibility="invisible" />
+                
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
