@@ -1,6 +1,8 @@
 package com.tarena.tlbs.util;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 public class ChatUtil {
 	// 五种数据类型
@@ -60,8 +62,31 @@ public class ChatUtil {
 	 *	byte[] data=body.getBytes();
 	 *	2,需要一种编码方式Base64是通用的，c,java,iphone都支持
 	 */
-	public static String imageToCode(){
-		return null;
+	public static String addImageTag(byte [] imageData){
+		StringBuilder stringBuilder=new StringBuilder();
+		try {
+			//利用Base64编码：将字节编码成字符串
+			String string=Base64.encodeToString(imageData, Base64.DEFAULT);
+			stringBuilder.append(TAG_IMAGE).append(string).append(TAG_END);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
+		return stringBuilder.toString();
+		}
+/**
+ * 接收图片时调用
+ * 
+ * @param body
+ * @return
+ */
+	public static Bitmap getImage(String body){
+		int start=TAG_IMAGE.length();
+		int end=body.length()-TAG_END.length();
+		body=body.substring(start, end);
+		//利用Base64编码将字符串编码称字节
+		byte [] bs=Base64.decode(body, Base64.DEFAULT);
+		Bitmap bitmap=BitmapFactory.decodeByteArray(bs, 0, bs.length);
+		return bitmap;
+	}
 }

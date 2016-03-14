@@ -19,6 +19,7 @@ import org.jivesoftware.smack.packet.RosterPacket.ItemType;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.tarena.tlbs.dao.MessageDao;
 import com.tarena.tlbs.entity.PrivateChatEntity;
 import com.tarena.tlbs.util.Const;
 
@@ -230,11 +231,14 @@ public class TApplication extends Application {
 				Message message = (Message) packet;
 				Message.Type type = message.getType();
 				if (type == Message.Type.chat) {
+					
 					String fromFriend = message.getFrom();
 					if (fromFriend.contains("/")) {
 						fromFriend = fromFriend.substring(0, fromFriend.indexOf("/"));
 					}
 					PrivateChatEntity.addMessage(fromFriend, message);
+					MessageDao messageDao=new MessageDao(instance);
+					messageDao.insert(message);
 					Intent intent = new Intent(Const.ACTION_SEND_PRIVATE_CHAT_MSG);
 					TApplication.instance.sendBroadcast(intent);
 				}
